@@ -26,11 +26,15 @@ index_new = GPTPineconeIndex.load_from_disk('data/indices/Earnings_index_pinecon
 
 # From here down is all the StreamLit UI.
 st.set_page_config(page_title="Investing QA Bot", page_icon=":robot:")
-st.header("QA Bot: Ask me about earnings calls!")
-message("""Hi I am Mr.Bot. I will share what I know along with sources for all my answers :).
-        PS: I currently only know about AAPL, AMZN and GOOG for 2022 earnings calls.""")
-message("""Try asking: What was Apple's revenue in Q1 of 2022?""")
-
+st.header("Company Earnings Bot")
+st.subheader('Ask me about earnings calls by your favorite companies.')
+st.markdown(
+"PS: I currently only know about AAPL, AMZN and GOOG for 2022 earnings calls. Stay tuned..."
+)
+message("Hi I am Mr.Bot. I will share what I know along with sources for all my answers :).")
+st.markdown(
+"Try asking: What was Apple's revenue in Q1 of 2022?"
+)
 
 if "generated" not in st.session_state:
     st.session_state["generated"] = []
@@ -48,7 +52,7 @@ def get_text():
 def get_metadata(user_query):
     gpt3_response = openai.Completion.create(
                     model="text-davinci-003",
-                    prompt=f"Extract the company symbol, year and quarter from the query below. If the query is unrelated to a company's earnings, then say \"Please ask about a company's eanrings in a specific year/quarter.\".\nExample: \"What was Amazon's revenue numbers as reported in the third quarter of 2022?\"\nAnswer: {{'symbol': 'AMZN',  'quarter': 3, 'year': 2022}}\n\n{user_query}\nAnswer:",
+                    prompt=f"Extract the company symbol, year and quarter from the query below. If the query is unrelated to a company, then say \"Please ask about a company's eanrings in a specific year/quarter.\".\nExample: \"What was Amazon's revenue numbers as reported in the third quarter of 2022?\"\nAnswer: {{'symbol': 'AMZN',  'quarter': 3, 'year': 2022}}\n\n{user_query}\nAnswer:",
                     temperature=0,
                     max_tokens=100,
                     top_p=1,
