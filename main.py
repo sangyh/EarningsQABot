@@ -22,7 +22,7 @@ pinecone.init(api_key=os.getenv("PINECONE_API_KEY"), environment=os.getenv("PINE
 
 # load from disk
 pc_index = pinecone.Index("earningsdata")
-index_new = GPTPineconeIndex.load_from_disk('../data/indices/Earnings_index_pinecone.json', pinecone_index=pc_index)
+index_new = GPTPineconeIndex.load_from_disk('data/indices/Earnings_index_pinecone.json', pinecone_index=pc_index)
 
 # From here down is all the StreamLit UI.
 st.set_page_config(page_title="Investing QA Bot", page_icon=":robot:")
