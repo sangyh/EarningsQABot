@@ -7,6 +7,8 @@ import os
 parent_dir = os.path.abspath(os.path.join(os.getcwd(), "../gpt_index"))
 sys.path.append(parent_dir)
 sys.path.append(os.path.abspath(os.path.join(os.getcwd(), "..")))
+print(os.getcwd())
+print(sys.path)
 
 from gpt_index import GPTPineconeIndex
 import openai
