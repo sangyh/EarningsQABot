@@ -26,9 +26,11 @@ index_new = GPTPineconeIndex.load_from_disk('data/indices/Earnings_index_pinecon
 
 # From here down is all the StreamLit UI.
 st.set_page_config(page_title="Investing QA Bot", page_icon=":robot:")
-st.header("QA Bot: this chatbot will answer questions based on earnings calls")
+st.header("QA Bot: Ask me about earnings calls!")
 message("""Hi I am Mr.Bot. I will share what I know along with sources for all my answers :).
         PS: I currently only know about AAPL, AMZN and GOOG for 2022 earnings calls.""")
+message("""Try asking: What was Apple's revenue in Q1 of 2022?""")
+
 
 if "generated" not in st.session_state:
     st.session_state["generated"] = []
